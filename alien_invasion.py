@@ -1,6 +1,8 @@
 import sys
 import pygame
-import settings
+from settings import Settings
+from ship import Ship
+
 
 class AlienInvasion:
     """管理游戏资源和行为的类 """
@@ -8,7 +10,7 @@ class AlienInvasion:
     def _init_(self):
         """初始化游戏并创建游戏资源"""
         pygame.init()
-        self.settings = settings.Settings()
+        self.settings = Settings()
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
 
         pygame.display.set_caption("Alien Invasion")
