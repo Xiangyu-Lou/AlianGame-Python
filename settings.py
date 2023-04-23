@@ -11,3 +11,5 @@ class Settings:
         self.bullet_width = 5
         self.bullet_height = 15
         self.bullet_color = (255, 0, 0)
+        self.fps = 240
+        self.bullet_nunmber = 20

@@ -25,9 +25,9 @@ class AlienInvasion:
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         
-        # creat a clock and set the fps to 240
+        # creat a clock
         self.clock = pygame.time.Clock()
-        self.fps = 240
+        self.fps = self.settings.fps
         
     def run_game(self):
         """开始游戏的主循环"""
@@ -35,9 +35,18 @@ class AlienInvasion:
             self.clock.tick(self.fps)
             self._check_events()
             self.ship.update()
-            self.bullets.update()
             self._update_screen()
+            self._update_bullete()
             
+    def _update_bullete(self):
+        """ update the bullets """
+        self.bullets.update()        
+        # delete the bullets that have disappeared
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        print (len(self.bullets))
+        
     def _check_events(self):
         """ 响应按键和鼠标事件 """
         for event in pygame.event.get():
