@@ -13,3 +13,5 @@ class Settings:
         self.bullet_color = (255, 0, 0)
         self.fps = 240
         self.bullet_nunmber = 20
+        self.alien_speed_x = 0.25
+        self.fleet_direction = 1
